@@ -1,0 +1,210 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "DMSans-SemiBold";
+  src: url("./assets/DMSans-SemiBold.ttf") format("opentype"); /* Adjust the format */
+}
+
+@font-face {
+  font-family: "DMSans-Regular";
+  src: url("./assets/DMSans-Regular.ttf") format("opentype"); /* Adjust the format */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-appearance: none;
+  /* font-family: "ClarenceWorld", sans-serif !important;  */
+  font-family: "DMSans-SemiBold", sans-serif !important;
+  /* font-weight: 700; */
+}
+.spline-watermark {
+  display: none !important;
+  bottom: -100px !important;
+}
+
+textarea {
+  display: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100dvh;
+  background-color: #fff;
+  color: #000;
+  /* overflow-y: hidden; */
+  /* font-family: -apple-system, sans-serif, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue"; */
+}
+
+.wave-bg {
+  background-color: #eeeeeec2;
+  /* margin-top: -100px; */
+
+  -webkit-mask-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNzI4IiBoZWlnaHQ9IjU0MjkiIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAxNzI4IDU0MjkiPjxwYXRoIGZpbGw9IiMwMDAiIGQ9Im0wIDU0MDcuNSAxNzI4IDIxLjVWLjUzNGMtNzUtMS41LTEwNiAxLjQ3My0xODguNSAxMC40NjYtMTUwLjUgMTYuNDA1LTM2MyAxMzcuOTE4LTQ4NS41IDg4LjgwNkM5MDYuNDE0IDQwLjYzNiA4MTQuNSA1Ni42NCA3MjAuNSA4My4xNGMtMTQ5IDQyLjAwNi0yNjUgNjIuMDk0LTM3OCAwQzIwNC4xMTEgNy4wOTUgMTAyLjUgMi4wMzQgMCAuNTM0VjU0MDcuNVoiLz48L3N2Zz4=);
+  mask-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNzI4IiBoZWlnaHQ9IjU0MjkiIGZpbGw9Im5vbmUiIHZpZXdCb3g9IjAgMCAxNzI4IDU0MjkiPjxwYXRoIGZpbGw9IiMwMDAiIGQ9Im0wIDU0MDcuNSAxNzI4IDIxLjVWLjUzNGMtNzUtMS41LTEwNiAxLjQ3My0xODguNSAxMC40NjYtMTUwLjUgMTYuNDA1LTM2MyAxMzcuOTE4LTQ4NS41IDg4LjgwNkM5MDYuNDE0IDQwLjYzNiA4MTQuNSA1Ni42NCA3MjAuNSA4My4xNGMtMTQ5IDQyLjAwNi0yNjUgNjIuMDk0LTM3OCAwQzIwNC4xMTEgNy4wOTUgMTAyLjUgMi4wMzQgMCAuNTM0VjU0MDcuNVoiLz48L3N2Zz4=);
+  -webkit-mask-repeat: repeat-x;
+  mask-repeat: repeat-x;
+  -webkit-mask-size: 78.125rem;
+  mask-size: 78.125rem;
+}
+
+.normal-font {
+  font-family: "DMSans-Regular", sans-serif !important;
+}
+
+.title {
+  position: relative;
+  font-family: "Poppins", sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 24px; /* Adjust font size to fit your design */
+  transition: opacity 0.3s;
+}
+
+.title:hover {
+  opacity: 0.9;
+  text-shadow: 0px -5px #ec2225, 0px 5px #00c2cb, -5px 0px #ec2225,
+    5px 0px #00c2cb;
+}
+
+.title::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #e0ffff;
+  z-index: -1;
+}
+
+.title:hover::before {
+  animation: animateGlitch 12ms ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes animateGlitch {
+  0%,
+  100% {
+    top: -7px;
+    left: 0;
+    opacity: 1;
+  }
+  20% {
+    top: 0;
+    left: -10px;
+    opacity: 0.7;
+  }
+  40% {
+    top: 7px;
+    left: 0;
+    opacity: 0.2;
+  }
+  60% {
+    top: 0;
+    left: 10px;
+    opacity: 0.3;
+  }
+  80% {
+    top: 0;
+    left: 0;
+    opacity: 0.9;
+  }
+}
+
+.glitch-icon {
+  position: relative;
+  display: inline-block; /* Allows the icon to behave like a text element */
+  width: 30px; /* Ensure this matches your SVG width */
+  height: 30px; /* Ensure this matches your SVG height */
+}
+
+.glitch-icon svg {
+  position: relative; /* Make the SVG's position relative */
+  z-index: 1; /* Ensure the SVG stays on top */
+}
+
+.glitch-icon::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit; /* Match the SVG background */
+  z-index: -1; /* Place the pseudo-element behind the SVG */
+}
+
+.glitch-icon:hover svg {
+  animation: glitch 0.1s infinite; /* Apply glitch effect to the SVG on hover */
+}
+
+.glitch-icon:hover::before {
+  animation: animateGlitch 12ms ease-in-out infinite;
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  10% {
+    transform: translate(-2px, -2px);
+  }
+  20% {
+    transform: translate(2px, 2px);
+  }
+  30% {
+    transform: translate(-2px, 0);
+  }
+  40% {
+    transform: translate(0, 2px);
+  }
+  50% {
+    transform: translate(2px, -2px);
+  }
+  60% {
+    transform: translate(-2px, 0);
+  }
+  70% {
+    transform: translate(0, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+  }
+  90% {
+    transform: translate(-2px, 0);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+@keyframes animateGlitch {
+  0%,
+  100% {
+    top: 0;
+    left: 0;
+    opacity: 1;
+  }
+  20% {
+    top: -3px;
+    left: -3px;
+    opacity: 0.7;
+  }
+  40% {
+    top: 3px;
+    left: 3px;
+    opacity: 0.2;
+  }
+  60% {
+    top: -3px;
+    left: 3px;
+    opacity: 0.3;
+  }
+  80% {
+    top: 3px;
+    left: -3px;
+    opacity: 0.9;
+  }
+}
